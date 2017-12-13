@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>HR APP</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <h2> TimeSheets </h2>
+
+  <h4> Active User: {{activeUser.firstName + ' ' + activeUser.lastName}} </h4>
+
+  <form (ngSubmit)="getTimeSheets()">
+    <button ion-button type="getTimeSheets"> getTimeSheets() </button>
+  </form>
+
+
+  <div align="center">
+    <h3>Select TimeSheet:</h3>
+
+    <!-- (ngModelChange)="showTimeSheet(selectedTimeSheet)" -->
+
+    <select [(ngModel)]="selectedTimeSheet" >
+      <option *ngFor="let timeSheet of timeSheets" [ngValue]="timeSheet">
+        {{ timeSheet.id + ' - ' + timeSheet.employeeFirstName + ' ' + timeSheet.employeeLastName + ' - ' + timeSheet.jobName + ' - ' + timeSheet.dateString }}
+        
+      </option>
+    </select>
+  </div>
+
+  <div align="left">
+    <h3>
+      <br> Selected TimeSheet:</h3>
+
+    <h6>TimeSheet ID: {{ selectedTimeSheet.id }} </h6>  
+    <h6>Date: {{ selectedTimeSheet.dateString }} </h6>
+    <h6>Employee: {{ selectedTimeSheet.employeeFirstName + ' ' + selectedTimeSheet.employeeLastName + ' (' + selectedTimeSheet.employeeID + ')' }} </h6>
+    <h6>Job: {{ selectedTimeSheet.jobName + ' (' + selectedTimeSheet.jobID + ')' }} </h6>
+    <h6>Hours Worked: {{ selectedTimeSheet.hoursWorked }} </h6>
+    
+  </div>
+
+
+  <form (ngSubmit)="deleteTimeSheet(selectedTimeSheet)">
+    <button ion-button type="deleteTimeSheet"> Delete TimeSheet </button>
+  </form>
+
+  <h6>{{message}}</h6>
+
+</ion-content>

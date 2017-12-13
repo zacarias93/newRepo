@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<h2>Username: </h2> <input [(ngModel)]="userName">
+<h2>Password: </h2> <input [(ngModel)]="password">
+
+<br><br>
+  <form (ngSubmit)="login(userName)">
+    <button ion-button type="submit"> Login</button>
+  </form>
+<br> <div *ngIf='message'><h4>{{message}} </h4></div>
+
+</ion-content> 
+

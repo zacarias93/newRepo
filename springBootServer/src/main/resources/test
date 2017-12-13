@@ -1,0 +1,23 @@
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2
+
+# MySQL: Connection url for the database "journal"
+#spring.datasource.url = jdbc:mysql://localhost:3306/HRApp
+
+spring.datasource.username = root
+spring.datasource.password =
+
+#spring.jpa.hibernate.ddl-auto = create-drop
+#spring.jpa.show-sql = true
+#spring.datasource.driverClassName = com.mysql.jdbc.Driver
+
+#spring.jpa.hibernate.naming.strategy = org.hibernate.cfg.ImprovedNamingStrategy
+#spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5Dialect
+#spring.data.rest.basePath=/api
+
+#spring.jpa.database = MYSQL
+
+
+
+
+

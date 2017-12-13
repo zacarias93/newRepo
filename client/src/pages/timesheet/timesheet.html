@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Time Sheet
+    </ion-title>
+
+    <h4>Employee ID: {{activeUser.ID}}</h4>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<div align="center"> 
+  <h2>Employee: {{activeUser.firstName}} {{activeUser.lastName}} </h2>
+</div>
+
+<div align="center">
+  <h3>Select Job:</h3>
+  <select [(ngModel)]="selectedJob" (ngModelChange)="selectJob(selectedJob)">
+    <option *ngFor="let job of listOfJobs" [ngValue] = "job">
+    {{job.name}}
+    </option>
+  </select>
+</div>
+
+<div align="center">
+  <h3>Time In: </h3>
+  <select [(ngModel)]="hourIn" (ngModelChange)="enterHourIn(hourIn)">
+    <option *ngFor="let hour of hours" 
+    [ngValue] = "hour">
+    {{hour}}
+    </option>
+  </select>
+  <select [(ngModel)]="minuteIn" (ngModelChange)="enterMinuteIn(minuteIn)">
+    <option *ngFor="let minute of minutes" 
+    [ngValue] = "minute">
+    {{minute}}
+    </option>
+  </select>
+  <select [(ngModel)]="meridianIn" (ngModelChange)="enterMeridianIn(meridianIn)">
+    <option *ngFor="let meridian of meridians" 
+    [ngValue] = "meridian">
+    {{meridian}}
+    </option>
+  </select>
+</div>
+
+<div align="center">
+  <h3>Time Out: </h3>
+  <select [(ngModel)]="hourOut" (ngModelChange)="enterHourOut(hourOut)">
+    <option *ngFor="let hour of hours" 
+      [ngValue] = "hour">
+      {{hour}}
+    </option>
+  </select>
+  <select [(ngModel)]="minuteOut" (ngModelChange)="enterMinuteOut(minuteOut)">
+    <option *ngFor="let minute of minutes" 
+      [ngValue] = "minute">
+      {{minute}}
+    </option>
+  </select>
+  <select [(ngModel)]="meridianOut" (ngModelChange)="enterMeridianOut(meridianOut)">
+    <option *ngFor="let meridian of meridians" 
+      [ngValue] = "meridian">
+      {{meridian}}
+    </option>
+  </select>
+
+  <br><br>
+  <form (ngSubmit)="calcHoursWorked()">
+    <button ion-button type="submit"> Calculate</button>
+  </form>
+  <div *ngIf="errorMessage"> 
+    <h2> {{errorMessage}} </h2>
+  </div>
+  <h2>Time Worked: </h2> <input [(ngModel)]="totalTimeWorked"> 
+
+  <form (ngSubmit)="submitTimeSheet()">
+    <button ion-button type="submit"> submitTimesheet() </button>
+  </form>
+
+  <h6>{{message}}</h6>
+  
+</div>
+
+
