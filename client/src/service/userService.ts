@@ -14,7 +14,7 @@ export class UserService {
     private auth = '.json?auth=MTnhWFwoABcCIpqaVPZA0YjEN7aFMo40c0GGAQwb'
 
     getUser(userName: string) {
-        var url = this.userUrl + userName ;
+        var url = this.userUrl + userName + this.auth ;
         console.log('DEBUG - getUser() - url ' + url);
 
         return this.http.get(url)
